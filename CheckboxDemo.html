@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function toggle() {
+            
+            var cb = document.getElementById("cbOthers");
+            if (cb.checked) {
+                document.getElementById("lblOthers").style.display = "block";
+            }
+            else {
+                document.getElementById("lblOthers").style.display = "none";
+            }
+
+        }
+
+        function getSkill() {
+            var cb = document.getElementById("cbOthers");
+            var skill = "";
+            if (cb.checked) {
+                skill = document.getElementById("txtOthers").value;
+            }
+            else {
+                var ddlskills = document.getElementById("ddlskills");
+
+                //skill = ddlskills.options[ddlskills.selectedIndex].text;
+
+                for (i = 0; i < ddlskills.options.length; i++) {
+                    if (ddlskills.options[i].selected) {
+                        skill += ddlskills.options[i].text + "<br/>";
+                    }
+                }
+            }
+
+            document.getElementById("message").innerHTML = "You have choosen :" + skill;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            <label> your skill: </label>
+            <select id="ddlskills" multiple="multiple">
+                <option selected="selected">Choose Your skill</option>
+                <option>jQuery</option>
+                <option>Angular</option>
+                <option>JavaScript</option>
+            </select>
+        </div>
+        <div>
+            Others : <input type="checkbox" id="cbOthers" onclick="toggle()" /> 
+        </div>
+        <div id="lblOthers" style="display:none;">
+            <input type="text" id="txtOthers" /> 
+        </div>
+        <div>
+             <input type="button" value="Submit" onclick="getSkill()" /> 
+        </div>
+        <div>
+            <span id="message"></span>
+        </div>
+    </form>
+</body>
+</html>

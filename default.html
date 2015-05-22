@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function init() {
+            document.getElementById("lblusername").innerHTML = sessionStorage.username;
+            document.getElementById("activeusers").innerHTML = "Current Active Users:" + localStorage.activeCount;
+            document.getElementById("allusers").innerHTML = "All Uses:" +localStorage.logCount;
+        }
+
+        window.onload = function () {
+            init();
+        }
+
+        function logoff() {
+           
+            localStorage.activeCount = parseInt(localStorage.activeCount) - 1;
+            sessionStorage.username = "";
+            location.href = "login.html";
+        }
+    </script>
+</head>
+<body>
+
+        <h2 id="lblusername"></h2>
+    <p id="activeusers">
+    </p>
+
+    <p id="allusers">
+
+    </p>
+
+    <button type="button" onclick="logoff()">
+        Logout
+    </button>
+</body>
+</html>

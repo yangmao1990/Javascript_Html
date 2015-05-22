@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+       
+        function fnLogin() {
+
+           
+
+
+            var user = document.getElementById("txtuser").value;
+            var password = document.getElementById("txtpassword").value;
+            if (user == password) {
+
+                if (localStorage.logCount) {
+                    localStorage.logCount = parseInt(localStorage.logCount) + 1;
+                    localStorage.activeCount = parseInt(localStorage.activeCount) + 1;
+                } else {
+                    localStorage.logCount = 1;
+                    localStorage.activeCount = 1;
+                }
+                              
+                sessionStorage.username = user;
+                location.href = "default.html";
+            } else {
+                alert("Invalid Credentails");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <h3>Login here...</h3>
+        <div>
+            <label>Username</label>
+            <input type="text" id="txtuser" /> 
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" id="txtpassword" /> 
+        </div>
+        <div>
+            <input type="button" value="Login" onclick="fnLogin()"/>
+        </div>
+    </form>
+
+</body>
+</html>

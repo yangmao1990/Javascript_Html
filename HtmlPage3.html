@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function init() {
+            if (localStorage.logCount) {
+                localStorage.logCount = parseInt(localStorage.logCount) + 1;
+            } else {
+                localStorage.logCount = 1;
+            }
+
+            document.getElementById("message").innerHTML = localStorage.logCount + " Users visted your website";
+        }
+
+        window.onload = function () {
+            init();
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <span id="message">
+
+        </span>
+    </div>
+</body>
+</html>

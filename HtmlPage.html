@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        function getGender() {
+            var genders = document.getElementsByName("Gender");
+
+            var gender = "";
+            for (i = 0; i < genders.length; i++) {
+                if (genders[i].checked) {
+                    gender = genders[i].value;
+                    break;
+                }
+            }
+            alert("Your gender is:" + gender);
+        }
+        
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            Choose Gender : 
+            <input type="radio" value="Male" id="rdMale" name="Gender"  onclick="getGender()" /> Male 
+            &nbsp;
+            &nbsp;
+            <input type="radio" value="Female" id="rdFemale" name="Gender" onclick="getGender()" /> Female
+        </div>
+        <div>
+            <button type="button" onclick="getGender()">Get Gender</button>
+        </div>
+        </form>
+</body>
+</html>

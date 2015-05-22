@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+       
+        var i = 0;
+        function showPopup() {
+            i++;
+            var newWindow;
+            if (!newWindow) {
+                newWindow = window.open('', 'win'+i, "height=100,width=200");
+
+                var markup = "<!doctype html><html><head><title>popup</title></head><body><h2>Hello..Poup</h2><button onclick='javascript:window.close()'>Close</button></body></html>";
+                newWindow.document.write(markup);
+            }
+            
+        }
+       
+    </script>
+</head>
+<body>
+    <form>
+        <div>
+            
+            <button type="button" onclick="showPopup()">Open PopUp</button>
+           
+        </div>
+    </form>
+
+</body>
+</html>
